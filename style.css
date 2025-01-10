@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background-color1: #f4f4f4;  
+    --background-color2: #f4f4f4;
+    --background-color3: #210840;  
+    --text-color: #3d1074; 
+    --text-color1: #cf1a99; 
+    --text-color2: #f4f4f4; 
+    --text-color3: #252424;  
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, #cf1a99, #3d1074);
+  
+}
+
+.navbar {
+    display: flex;
+    justify-content: end;
+    background: linear-gradient(to right, #cf1a99, #3d1074);
+    padding: 1rem;
+}
+
+.navbar ul{
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar ul li {
+    list-style-type: none;  
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: var(--text-color2);
+    font-weight: 600;
+    position: relative;
+    margin-right: 0.5rem;
+}
+
+.navbar li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color2);
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease;
+}
+
+.navbar li a:hover::after {
+    transform: scaleX(1);
+}
+
+.hero {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background-image: url("img/bild2.jpg");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    padding: 3rem;
+    height: 30vh;
+}
+
+.hero h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-color1);
+    transform: translateX(-100%); /* Start utanför skärmen till vänster */
+    opacity: 0; /* Gör elementet osynligt initialt */
+    animation: slideIn 1s ease-out forwards; /* Animation */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+#lineup {
+    text-align: center;
+    padding: 2rem;
+}
+#lineup h2{
+    color: var(--text-color2);
+
+}
+#lineup p {
+    color: var(--text-color2);
+    margin-top: 0.4rem;
+
+}
+
+#artists-container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 kolumn på mobiler */
+    gap: 0.5rem; /* Avstånd mellan korten */
+    margin: 1rem;
+}
+
+.artist-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    margin: 0.5rem;
+    background-color: var(--background-color3);
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    border-radius: 10px;
+    min-height: 250px;
+    height: 250px;
+}
+
+.artist-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-color2);
+}
+
+.artist-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color2);
+    margin-bottom: 0.5rem; 
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(to right, #cf1a99, #3d1074);
+    margin-top: 1rem;
+}
+
+footer p {
+    color: var(--text-color2);
+    font-size: 0.8rem;
+}
+
+@media (min-width: 620px) and (max-width: 900px) {
+    #artists-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolumner för tablets och små skärmar */
+    }
+
+    .artist-card {
+        min-height: 310px;
+        height: 310px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    footer p {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+
+    .navbar {
+        padding: 1.2rem;
+    }
+
+    .navbar li a {
+        font-size: 1rem;
+        margin-right: 0.8rem;
+    }
+
+    #lineup p {
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
+
+    #artists-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolumner för bärbara datorer */
+    }
+
+    .artist-card {
+        min-height: 310px;
+        height: 310px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    footer p {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1201px) {
+
+    .navbar {
+        padding: 1.5rem;
+    }
+
+    .navbar li a {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
+
+    #lineup p {
+        margin-left: 8rem;
+        margin-right: 8rem;
+    }
+    
+    #artists-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 kolumner för stora skärmar */
+    }
+
+    .artist-card {
+        min-height: 310px;
+        height: 310px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    footer p {
+        font-size: 1rem;
+    }
+}
